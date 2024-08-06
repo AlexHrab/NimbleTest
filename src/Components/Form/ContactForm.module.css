@@ -12,6 +12,7 @@
   height: 380px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 30px;
   position: sticky;
   top: 0;
