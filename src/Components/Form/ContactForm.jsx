@@ -6,9 +6,15 @@ import { createContact, getContactsList } from "../../ApiFunctions";
 import { Button } from "../Button/Button";
 
 const SignupSchema = yup.object().shape({
-  FirstName: yup.string(),
-  LastName: yup.string(),
-  Email: yup.string().email("Invalid email").required("email is Required"),
+  FirstName: yup.string().trim().min(3, "Too Short!").max(20, "Too Long!"),
+  LastName: yup.string().trim().min(3, "Too Short!").max(20, "Too Long!"),
+  Email: yup
+    .string()
+    .email("Invalid email")
+    .required("email is Required")
+    .trim()
+    .min(10, "Too Short!")
+    .max(40, "Too Long!"),
 
   customFieldCheck: yup
     .string()
@@ -76,6 +82,11 @@ export function ContactForm({ setContacts }) {
                 name="FirstName"
                 placeholder="Please enter a First Name"
               />
+              <ErrorMessage
+                className={css.error}
+                name="FirstName"
+                component="span"
+              />
               {errors.customFieldCheck && (
                 <span className={css.error}>{errors.customFieldCheck}</span>
               )}
@@ -91,6 +102,11 @@ export function ContactForm({ setContacts }) {
                 name="LastName"
                 placeholder="Please enter a Last Name"
                 type="text"
+              />
+              <ErrorMessage
+                className={css.error}
+                name="LastName"
+                component="span"
               />
               {errors.customFieldCheck && (
                 <span className={css.error}>{errors.customFieldCheck}</span>
