@@ -1,7 +1,12 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
   margin: 0;
   padding: 0;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
 }

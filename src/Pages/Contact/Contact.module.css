@@ -1,10 +1,23 @@
 .box {
-  background-color: rgb(209 213 219);
-  width: 500px;
-  height: 120px;
+  border-radius: 7px;
+  background: linear-gradient(315deg, #cacaca, #f0f0f0);
+  box-shadow: -5px -5px 10px #d0d0d0, 5px 5px 10px #f0f0f0;
+  max-width: 500px;
+  height: 150px;
   display: flex;
   padding: 16px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.infoBox {
+  max-width: 600px;
+  height: 350px;
+  margin-top: 30px;
+  width: 100%;
 }
 
 .icon {
@@ -12,19 +25,42 @@
   top: 10px;
   right: 10px;
   font-size: 26px;
+  transition: transform 500ms ease-in-out;
+  cursor: auto;
+}
+
+.icon:hover {
+  transform: scale(1.3);
 }
 
 .wrapper {
   display: flex;
 }
 
+.infoWrapper {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.imageNameAndEmail {
+  display: inline-flex;
+}
+
 .name {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  height: 40px;
+  text-transform: capitalize;
+  font-size: 24px;
+  font-weight: 800;
 }
 
 .nameAndEmail {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   font-weight: 600;
   gap: 8px;
 }
@@ -35,4 +71,54 @@
   display: block;
   border-radius: 50%;
   margin-right: 16px;
+}
+
+.infoImage {
+  width: 100px;
+  height: 100px;
+}
+
+.email {
+  text-align: left;
+}
+
+.list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.item {
+  font-size: 12px;
+  text-transform: uppercase;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 6px 6px 12px #bcbcbc, -6px -6px 12px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.infoItem {
+  margin-left: 25px;
+  font-size: 20px;
+}
+
+.tagsTitle {
+  text-align: left;
+  margin: 10px 0 0;
+}
+
+@media screen and (max-width: 767px) {
+  .name {
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: 900;
+  }
 }

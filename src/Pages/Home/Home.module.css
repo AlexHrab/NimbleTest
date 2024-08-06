@@ -1,3 +1,12 @@
 .wrapper {
+  width: 100%;
   display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    flex-direction: column;
+  }
 }

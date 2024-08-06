@@ -3,6 +3,7 @@ import * as yup from "yup";
 import css from "./ContactForm.module.css";
 import { useEffect, useState } from "react";
 import { createContact, getContactsList } from "../../ApiFunctions";
+import { Button } from "../Button/Button";
 
 const SignupSchema = yup.object().shape({
   FirstName: yup.string(),
@@ -35,6 +36,7 @@ export function ContactForm({ setContacts }) {
           await createContact(contactData);
           const result = await getContactsList();
           setContacts(result.resources);
+          alert("Contact successfully created");
         } catch (error) {
           alert(error.message);
         }
@@ -56,7 +58,7 @@ export function ContactForm({ setContacts }) {
 
   return (
     <div className={css.inputBlock}>
-      <h3>Create Contact</h3>
+      <h2>Create Contact</h2>
       <Formik
         initialValues={values}
         onSubmit={submit}
@@ -112,10 +114,11 @@ export function ContactForm({ setContacts }) {
                 component="span"
               />
             </div>
-
-            <button type="submit" className={css.btn}>
-              Add Contact
-            </button>
+            <Button
+              type={"submit"}
+              credentionals={"Add Contact"}
+              clasName={"btn"}
+            />
           </Form>
         )}
       </Formik>
