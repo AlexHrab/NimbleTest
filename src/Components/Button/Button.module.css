@@ -12,6 +12,7 @@
   box-shadow: -6px -6px 12px #bcbcbc, 6px 6px 12px #ffffff;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 .inputBtn {
@@ -30,6 +31,7 @@
   box-shadow: -6px -6px 12px #bcbcbc, 6px 6px 12px #ffffff;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 .inputBtn:hover,
