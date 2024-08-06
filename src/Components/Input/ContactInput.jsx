@@ -7,7 +7,6 @@ import { Button } from "../Button/Button";
 export function ContactInput({ setContactInfo, contactId }) {
   const [data, setData] = useState({ id: "", contactData: [] });
   const [isSubmiting, setIsSubmiting] = useState(false);
-  console.log(isSubmiting);
 
   useEffect(() => {
     if (isSubmiting) {

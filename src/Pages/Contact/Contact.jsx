@@ -25,6 +25,8 @@ export function Contact({
   const { id } = useParams();
   contactId = id;
   const [Loading, setLoading] = useState(true);
+  const [active, setActive] = useState(false);
+  const [contactTag, setConactTag] = useState("");
 
   function onClickDelete(e) {
     e.stopPropagation();
@@ -34,6 +36,11 @@ export function Contact({
   function onClickContactInfo(id) {
     navigate(`/contact/${id}`);
     setContactId(id);
+  }
+
+  function tagOnClick(tag) {
+    setActive(true);
+    setConactTag(tag);
   }
 
   useEffect(() => {
@@ -65,6 +72,17 @@ export function Contact({
           thisLocation ? () => onClickContactInfo(properties.id) : undefined
         }
       >
+        {!thisLocation && active && (
+          <div className={css.backdrop}>
+            <div className={css.modal}>
+              <AiOutlineCloseCircle
+                className={css.modalIcon}
+                onClick={() => setActive(false)}
+              />
+              <p>{contactTag}</p>
+            </div>
+          </div>
+        )}
         {thisLocation && (
           <AiOutlineCloseCircle className={css.icon} onClick={onClickDelete} />
         )}
@@ -86,7 +104,11 @@ export function Contact({
               <ul className={css.list}>
                 {properties?.tags.length !== 0 ? (
                   properties?.tags.map((el) => (
-                    <li key={nanoid()} className={item}>
+                    <li
+                      key={nanoid()}
+                      className={item}
+                      onClick={() => tagOnClick(el.tag)}
+                    >
                       <p>tag</p>
                     </li>
                   ))
