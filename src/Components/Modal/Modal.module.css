@@ -1,0 +1,60 @@
+.tagModal {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px #a8a8a8, -5px -5px 10px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 28px;
+  font-weight: 500;
+  opacity: 1;
+  animation: modalAppear 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0.5);
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+.imageModal {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px #a8a8a8, -5px -5px 10px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 28px;
+  font-weight: 500;
+  opacity: 1;
+  animation: modalAppear 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.modalIcon {
+  font-size: 34px;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  cursor: pointer;
+}

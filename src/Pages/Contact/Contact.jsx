@@ -8,6 +8,7 @@ import { ContactInput } from "../../Components/Input/ContactInput";
 import clsx from "clsx";
 import { nanoid } from "nanoid";
 import { useParams } from "react-router-dom";
+import { Modal } from "../../Components/Modal/Modal";
 
 export function Contact({
   properties,
@@ -25,8 +26,10 @@ export function Contact({
   const { id } = useParams();
   contactId = id;
   const [Loading, setLoading] = useState(true);
-  const [active, setActive] = useState(false);
+  const [activeTag, setActiveTag] = useState(false);
+  const [activeImage, setActiveImage] = useState(false);
   const [contactTag, setConactTag] = useState("");
+  const [contactImage, setConactImage] = useState("");
 
   function onClickDelete(e) {
     e.stopPropagation();
@@ -39,8 +42,13 @@ export function Contact({
   }
 
   function tagOnClick(tag) {
-    setActive(true);
+    setActiveTag(true);
     setConactTag(tag);
+  }
+
+  function imageOnClick(image) {
+    setActiveImage(true);
+    setConactImage(image);
   }
 
   useEffect(() => {
@@ -72,16 +80,15 @@ export function Contact({
           thisLocation ? () => onClickContactInfo(properties.id) : undefined
         }
       >
-        {!thisLocation && active && (
-          <div className={css.backdrop}>
-            <div className={css.modal}>
-              <AiOutlineCloseCircle
-                className={css.modalIcon}
-                onClick={() => setActive(false)}
-              />
-              <p>{contactTag}</p>
-            </div>
-          </div>
+        {!thisLocation && activeTag && (
+          <Modal clasName={"tagModal"} setActive={setActiveTag}>
+            <p>{contactTag}</p>
+          </Modal>
+        )}
+        {!thisLocation && activeImage && (
+          <Modal clasName={"imageModal"} setActive={setActiveImage}>
+            <img className={css.imageModal} src={contactImage} alt="image" />
+          </Modal>
         )}
         {thisLocation && (
           <AiOutlineCloseCircle className={css.icon} onClick={onClickDelete} />
@@ -92,6 +99,7 @@ export function Contact({
               className={image}
               src={properties?.avatar_url}
               alt={properties?.fields["last name"]}
+              onClick={() => imageOnClick(properties?.avatar_url)}
             />
             <div className={css.nameAndEmail}>
               <div className={css.name}>
