@@ -30,7 +30,7 @@ export function ContactInput({ setContactInfo, contactId }) {
     const form = evt.target;
     const value = form.elements.input.value;
     if (form.elements.input.value.trim() === "") {
-      alert("Please enter search term!");
+      alert("Please enter tags");
       return;
     }
     const tags = value.split(/[,;.\s]+/).filter((tag) => tag.trim() !== "");
