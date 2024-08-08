@@ -4,18 +4,19 @@
   box-shadow: -5px -5px 10px #d0d0d0, 5px 5px 10px #f0f0f0;
   max-width: 500px;
   height: 150px;
-  display: flex;
+
   padding: 16px;
   position: relative;
+  display: flex;
   justify-content: space-between;
   cursor: pointer;
   overflow: hidden;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .infoBox {
   max-width: 600px;
-  height: 350px;
+  height: auto;
   margin-top: 30px;
   width: 100%;
   cursor: auto;
