@@ -22,7 +22,10 @@ export function Contact({
   const wrapper = clsx(css.wrapper, !thisLocation && css.infoWrapper);
   const image = clsx(css.image, !thisLocation && css.infoImage);
   const box = clsx(css.box, !thisLocation && css.infoBox);
-  const item = clsx(css.item, !thisLocation && css.infoItem);
+  const item = clsx(
+    css.item,
+    !thisLocation && properties?.tags.length !== 0 && css.infoItem
+  );
   const { id } = useParams();
   contactId = id;
   const [Loading, setLoading] = useState(true);
