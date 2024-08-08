@@ -7,10 +7,10 @@
   display: flex;
   padding: 16px;
   position: relative;
-  display: flex;
   justify-content: space-between;
   cursor: pointer;
   overflow: hidden;
+  width: 100%;
 }
 
 .infoBox {
