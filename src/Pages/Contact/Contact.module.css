@@ -129,6 +129,40 @@
   object-fit: cover;
 }
 
+.boxWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.Link {
+  box-sizing: border-box;
+  height: 35px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(97, 91, 91);
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 4px;
+  border-radius: 8px;
+  background: linear-gradient(315deg, #dbdada, #b4b3b3);
+  box-shadow: -6px -6px 12px #bcbcbc, 6px 6px 12px #ffffff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.Link:hover {
+  background: linear-gradient(315deg, #c1c0c0, #a09f9f);
+  color: white;
+}
+
 @media screen and (max-width: 767px) {
   .name {
     box-sizing: border-box;

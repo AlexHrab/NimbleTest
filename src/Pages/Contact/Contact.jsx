@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { nanoid } from "nanoid";
 import { useParams } from "react-router-dom";
 import { Modal } from "../../Components/Modal/Modal";
+import { Link } from "react-router-dom";
 
 export function Contact({
   properties,
@@ -76,7 +77,12 @@ export function Contact({
   }
 
   return (
-    <>
+    <div className={css.boxWrapper}>
+      {!thisLocation && (
+        <Link to="/" className={css.Link}>
+          Back
+        </Link>
+      )}
       <li
         className={box}
         onClick={
@@ -140,6 +146,6 @@ export function Contact({
           )}
         </div>
       </li>
-    </>
+    </div>
   );
 }
