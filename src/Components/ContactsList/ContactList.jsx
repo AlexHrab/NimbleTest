@@ -13,17 +13,21 @@ export function ContactList({
     <div className={css.box}>
       <h2>Contacts</h2>
       <ul className={css.list}>
-        {contacts.map((el) => (
-          <Contact
-            key={el.id}
-            properties={el}
-            setContacts={setContacts}
-            contactId={contactId}
-            setContactId={setContactId}
-            contactInfo={contactInfo}
-            setContactInfo={setContactInfo}
-          />
-        ))}
+        {contacts.length !== 0 ? (
+          contacts.map((el) => (
+            <Contact
+              key={el.id}
+              properties={el}
+              setContacts={setContacts}
+              contactId={contactId}
+              setContactId={setContactId}
+              contactInfo={contactInfo}
+              setContactInfo={setContactInfo}
+            />
+          ))
+        ) : (
+          <p className={css.noContacts}>There are no contacts</p>
+        )}
       </ul>
     </div>
   );
