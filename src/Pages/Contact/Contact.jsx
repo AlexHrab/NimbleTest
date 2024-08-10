@@ -112,8 +112,17 @@ export function Contact({
             />
             <div className={css.nameAndEmail}>
               <div className={css.name}>
-                <p>{properties?.fields["last name"]?.[0].value.trim()}</p>&nbsp;
-                <p>{properties?.fields["first name"]?.[0].value.trim()}</p>
+                <p className={css.nameText}>
+                  {properties?.fields["last name"]?.[0].value
+                    .split(" ")[0]
+                    .trim()}
+                </p>
+                &nbsp;
+                <p className={css.nameText}>
+                  {properties?.fields["first name"]?.[0].value
+                    .split(" ")[0]
+                    .trim()}
+                </p>
               </div>
               <p className={css.email}>{properties?.fields.email?.[0].value}</p>
 

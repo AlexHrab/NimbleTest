@@ -60,6 +60,12 @@
   font-weight: 800;
 }
 
+.nameText {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
 .nameAndEmail {
   display: flex;
   flex-direction: column !important;
@@ -168,6 +174,15 @@
     box-sizing: border-box;
     font-size: 18px;
     font-weight: 900;
+    flex-wrap: nowrap;
+    display: flex !important;
+    flex-direction: row;
+  }
+
+  .nameText {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
 
   .wrapper {
