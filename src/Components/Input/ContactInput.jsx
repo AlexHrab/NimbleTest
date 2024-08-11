@@ -20,8 +20,10 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
             alert("Tags successfully updated");
           } else if (actionType === "add") {
             alert("Tags successfully added");
-          } else if (actionType === "delete") {
+          } else if (actionType === "delete" && allTags.length !== 0) {
             alert("Tags successfully deleted");
+          } else if (actionType === "delete" && allTags.length === 0) {
+            alert("There are no contacts to delete");
           }
           setContactInfo(result.resources[0]);
         } catch (error) {
