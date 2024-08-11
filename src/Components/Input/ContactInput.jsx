@@ -46,7 +46,6 @@ export function ContactInput({ setContactInfo, contactId }) {
         name="input"
         type="text"
         autoComplete="off"
-        autoFocus
         placeholder="Add tag"
       />
 
