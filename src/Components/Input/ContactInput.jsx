@@ -6,7 +6,6 @@ import { Button } from "../Button/Button";
 
 export function ContactInput({ setContactInfo, contactId, properties }) {
   const allTags = properties?.tags2;
-  console.log(allTags);
   const [data, setData] = useState({ id: "", contactData: [...allTags] });
   const [isSubmiting, setIsSubmiting] = useState(false);
   const [actionType, setActionType] = useState("");
@@ -17,6 +16,13 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
         try {
           await addTag(data);
           const result = await fetchContact(contactId);
+          if (actionType === "update") {
+            alert("Tags successfully updated");
+          } else if (actionType === "add") {
+            alert("Tags successfully added");
+          } else if (actionType === "delete") {
+            alert("Tags successfully deleted");
+          }
           setContactInfo(result.resources[0]);
         } catch (error) {
           alert(error.message);
@@ -32,11 +38,14 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
     evt.preventDefault();
     const form = evt.target;
     const value = form.elements.input.value;
-    if (form.elements.input.value.trim() === "") {
+    if (form.elements.input.value.trim() === "" && actionType !== "delete") {
       alert("Please enter tags");
       return;
     }
-    const tags = value.split(/[,;.\s]+/).filter((tag) => tag.trim() !== "");
+    const tags =
+      actionType !== "delete"
+        ? value.split(/[,;.\s]+/).filter((tag) => tag.trim() !== "")
+        : [];
     const updatedTags = [...data.contactData, ...tags];
 
     setData({
@@ -55,7 +64,7 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
         name="input"
         type="text"
         autoComplete="off"
-        placeholder="Please enter a tag"
+        placeholder="Please enter a tags"
       />
 
       <Button
@@ -69,6 +78,12 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
         credentionals={"Update tags"}
         clasName={"inputBtn"}
         onClick={() => setActionType("update")}
+      />
+      <Button
+        type={"submit"}
+        credentionals={"Delete tags"}
+        clasName={"inputBtn"}
+        onClick={() => setActionType("delete")}
       />
     </form>
   );
