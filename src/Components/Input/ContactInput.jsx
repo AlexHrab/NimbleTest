@@ -55,7 +55,7 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
         name="input"
         type="text"
         autoComplete="off"
-        placeholder="Add tag"
+        placeholder="Please enter a tag"
       />
 
       <Button
