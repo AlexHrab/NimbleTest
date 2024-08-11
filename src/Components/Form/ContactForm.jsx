@@ -63,7 +63,7 @@ export function ContactForm({ setContacts }) {
   }
 
   return (
-    <div className={css.inputBlock}>
+    <div className={css.FormBlock}>
       <h2>Create Contact</h2>
       <Formik
         initialValues={values}
@@ -125,7 +125,7 @@ export function ContactForm({ setContacts }) {
                 type="text"
               />
               <ErrorMessage
-                className={css.error}
+                className={`${css.error} ${css.emailError}`}
                 name="Email"
                 component="span"
               />

@@ -3,12 +3,13 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  gap: 30px;
   padding: 10px;
   border-radius: 12px;
   width: 300px;
 }
 
-.inputBlock {
+.FormBlock {
   height: 380px;
   display: flex;
   flex-direction: column;
@@ -17,6 +18,13 @@
   position: sticky;
   top: 0;
   margin: 0;
+}
+
+.inputBlock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .label {
@@ -39,11 +47,13 @@
 
 .error {
   text-transform: uppercase;
+  display: block;
   color: red;
   font-size: 12px;
   position: absolute;
   font-weight: 500;
   top: 70px;
+  align-self: center;
 }
 
 .box {
@@ -52,8 +62,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .inputBlock {
+  .FormBlock {
     position: static;
-    margin-bottom: 32px;
   }
 }
