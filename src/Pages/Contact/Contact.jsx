@@ -151,6 +151,7 @@ export function Contact({
             <ContactInput
               setContactInfo={setContactInfo}
               contactId={contactId}
+              properties={properties}
             />
           )}
         </div>

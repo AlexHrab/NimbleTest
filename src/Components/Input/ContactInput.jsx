@@ -4,8 +4,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Button } from "../Button/Button";
 
-export function ContactInput({ setContactInfo, contactId }) {
-  const [data, setData] = useState({ id: "", contactData: [] });
+export function ContactInput({ setContactInfo, contactId, properties }) {
+  const allTags = properties?.tags2;
+  console.log(allTags);
+  const [data, setData] = useState({ id: "", contactData: [...allTags] });
   const [isSubmiting, setIsSubmiting] = useState(false);
 
   useEffect(() => {
@@ -34,7 +36,10 @@ export function ContactInput({ setContactInfo, contactId }) {
       return;
     }
     const tags = value.split(/[,;.\s]+/).filter((tag) => tag.trim() !== "");
-    setData({ id: contactId, contactData: tags });
+    const updatedTags = [...data.contactData, ...tags];
+
+    setData({ id: contactId, contactData: updatedTags });
+
     setIsSubmiting(true);
     form.reset();
   }
