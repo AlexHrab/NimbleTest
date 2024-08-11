@@ -9,6 +9,7 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
   console.log(allTags);
   const [data, setData] = useState({ id: "", contactData: [...allTags] });
   const [isSubmiting, setIsSubmiting] = useState(false);
+  const [actionType, setActionType] = useState("");
 
   useEffect(() => {
     if (isSubmiting) {
@@ -38,7 +39,10 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
     const tags = value.split(/[,;.\s]+/).filter((tag) => tag.trim() !== "");
     const updatedTags = [...data.contactData, ...tags];
 
-    setData({ id: contactId, contactData: updatedTags });
+    setData({
+      id: contactId,
+      contactData: actionType !== "add" ? tags : updatedTags,
+    });
 
     setIsSubmiting(true);
     form.reset();
@@ -54,7 +58,18 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
         placeholder="Add tag"
       />
 
-      <Button type={"submit"} credentionals={"Add Tag"} clasName={"inputBtn"} />
+      <Button
+        type={"submit"}
+        credentionals={"Add Tag"}
+        clasName={"inputBtn"}
+        onClick={() => setActionType("add")}
+      />
+      <Button
+        type={"submit"}
+        credentionals={"Update tags"}
+        clasName={"inputBtn"}
+        onClick={() => setActionType("update")}
+      />
     </form>
   );
 }
