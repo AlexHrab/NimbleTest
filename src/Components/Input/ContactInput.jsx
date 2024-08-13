@@ -71,7 +71,7 @@ export function ContactInput({ setContactInfo, contactId, properties }) {
 
       <Button
         type={"submit"}
-        credentionals={"Add Tag"}
+        credentionals={"Add tags"}
         clasName={"inputBtn"}
         onClick={() => setActionType("add")}
       />
